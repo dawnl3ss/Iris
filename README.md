@@ -9,7 +9,7 @@ Iris is an open and free instant chat made with python3 based on client / server
 ```python
 python3 server.py
 ```
-
+<br>
 💻Client Side :  
 -> Then download client-related files located in <a href="https://github.com/Neptune-IT/Iris/tree/main/client">client folder</a> in your PC.  
 -> After, just start <a href="https://github.com/Neptune-IT/Iris/tree/main/client/client.py">client.py</a> file and put your machine's ip-adress and socket port.  

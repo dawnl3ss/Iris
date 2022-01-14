@@ -1,7 +1,5 @@
 from conn.sock_parser import sock_parser
 from utils.port_generator import gen_unique_port
-import os
-import json
 
 def main():
     parser = sock_parser()
@@ -14,7 +12,7 @@ def main():
         print("[+] New client connection : {} | {}".format(client_adress, client_port))
 
         while True:
-            # Envoie du message
+            # Envoie du 3way handshake avec les ports de connexions
             client.sendall("{}:{}".format(gen_unique_port(), gen_unique_port()).encode())
 
             # Attente de réponse

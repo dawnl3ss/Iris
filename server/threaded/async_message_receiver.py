@@ -15,3 +15,6 @@ class async_message_receive(threading.Thread):
         self.parser.bind_sock_message_receiver(self.adress, self.port)
         self.parser.listen_sock_message_receiver()
         (client, (client_adress, client_port)) = self.parser.accept_sock_message_receiver()
+
+        while True:
+            message = client.recv(1024).decode()

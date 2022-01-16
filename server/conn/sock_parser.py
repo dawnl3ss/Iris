@@ -32,11 +32,11 @@ class sock_parser():
 
 
 
-    def connect_sock_message_sender(self, adress, port) -> None :
-        self.sock_message_sender.connect((adress, port))
+    def connect_sock_message_sender(self, port) -> None :
+        self.sock_message_sender.connect((self.data["server-ip"], port))
 
-    def bind_sock_message_sender(self, adress, port) -> None :
-        self.sock_message_sender.bind((adress, port))
+    def bind_sock_message_sender(self, port) -> None :
+        self.sock_message_sender.bind((self.data["server-ip"], port))
 
     def listen_sock_message_sender(self) -> None :
         self.sock_message_sender.listen()
@@ -55,11 +55,11 @@ class sock_parser():
 
 
 
-    def connect_sock_message_receiver(self, adress, port) -> None :
-        self.sock_message_receiver.connect((adress, port))
+    def connect_sock_message_receiver(self, port) -> None :
+        self.sock_message_receiver.connect((self.data["server-ip"], port))
 
-    def bind_sock_message_receiver(self, adress, port) -> None :
-        self.sock_message_receiver.bind((adress, port))
+    def bind_sock_message_receiver(self, port) -> None :
+        self.sock_message_receiver.bind((self.data["server-ip"], port))
 
     def listen_sock_message_receiver(self) -> None :
         self.sock_message_receiver.listen()

@@ -36,11 +36,11 @@ class sock_parser():
 
 
 
-    def connect_sock_message_sender(self) -> None :
-        self.sock_message_sender.connect((self.adress, self.data["port-message-sender"]))
+    def connect_sock_message_sender(self, adress, port) -> None :
+        self.sock_message_sender.connect((adress, port))
 
-    def bind_sock_message_sender(self) -> None :
-        self.sock_message_sender.bind((self.adress, self.data["port-message-sender"]))
+    def bind_sock_message_sender(self, adress, port) -> None :
+        self.sock_message_sender.bind((adress, port))
 
     def listen_sock_message_sender(self) -> None :
         self.sock_message_sender.listen()

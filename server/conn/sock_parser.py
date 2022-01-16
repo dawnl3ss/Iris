@@ -1,11 +1,12 @@
 import socket
 import json
 
+# server-side
 class sock_parser():
 
     def __init__(self):
         self.sock_main_stream = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.sock_message_sender = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.sock_query_message = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock_message_receiver = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.data = json.load(open("server_settings.json"))
 
@@ -32,26 +33,26 @@ class sock_parser():
 
 
 
-    def connect_sock_message_sender(self, port) -> None :
-        self.sock_message_sender.connect((self.data["server-ip"], port))
+    def connect_sock_query_message(self, port) -> None :
+        self.sock_query_message.connect((self.data["server-ip"], port))
 
-    def bind_sock_message_sender(self, port) -> None :
-        self.sock_message_sender.bind((self.data["server-ip"], port))
+    def bind_sock_query_message(self, port) -> None :
+        self.sock_query_message.bind((self.data["server-ip"], port))
 
-    def listen_sock_message_sender(self) -> None :
-        self.sock_message_sender.listen()
+    def listen_sock_query_message(self) -> None :
+        self.sock_query_message.listen()
 
-    def accept_sock_message_sender(self) -> tuple :
-        return self.sock_message_sender.accept()
+    def accept_sock_query_message(self) -> tuple :
+        return self.sock_query_message.accept()
 
-    def sendall_sock_message_sender(self, data) -> None:
-        self.sock_message_sender.sendall(data)
+    def sendall_sock_query_message(self, data) -> None:
+        self.sock_query_message.sendall(data)
 
-    def receive_sock_message_sender(self)-> bytes :
-        return self.sock_message_sender.recv(1024)
+    def receive_sock_query_message(self)-> bytes :
+        return self.sock_query_message.recv(1024)
 
-    def close_sock_message_sender(self) -> None :
-        self.sock_message_sender.close()
+    def close_sock_query_message(self) -> None :
+        self.sock_query_message.close()
 
 
 

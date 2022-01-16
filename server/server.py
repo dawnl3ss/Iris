@@ -1,6 +1,7 @@
 from conn.sock_parser import sock_parser
 from utils.port_generator import gen_unique_port
 from threaded.async_message_receiver import async_message_receiver
+from threaded.async_query_message import async_query_message
 
 def main():
     parser = sock_parser()
@@ -20,7 +21,8 @@ def main():
 
             # Attente de réponse
             if client.recv(1024).decode() == "exit":
-                message_receiver = async_message_receiver(port_message_sender).start()
+                async_query_message(port_query_message).start()
+                async_message_receiver(port_message_sender).start()
                 break
         client.close()
 

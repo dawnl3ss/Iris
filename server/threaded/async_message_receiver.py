@@ -4,6 +4,7 @@ sys.path.append("../")
 from conn.sock_parser import sock_parser
 from session.session import session
 
+# server-side
 class async_message_receiver(threading.Thread):
 
     def __init__(self, port):

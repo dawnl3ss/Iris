@@ -2,6 +2,7 @@ import sys
 sys.path.append("../")
 from conn.sock_parser import sock_parser
 
+# client-side
 class sync_message_sender():
 
     def __init__(self, adress, port):

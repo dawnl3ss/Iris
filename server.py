@@ -1,8 +1,7 @@
 from conn.conn_socket import ConnSocket
 
 def main():
-    sock = ConnSocket("127.0.0.1", 12345)
-
+    sock = ConnSocket("127.0.0.1", 23456)
     sock.__bind__()
     sock.__listen__()
 
